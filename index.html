@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Inventory</title>
+
+    <!-- SheetJS library for Excel import -->
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <h1>Beauty Inventory</h1>
+            <button id="import-btn" class="btn btn-primary">
+                Import Excel
+            </button>
+            <input type="file" id="file-input" accept=".xlsx,.xls" multiple hidden>
+        </header>
+
+        <!-- Category Tabs -->
+        <nav class="category-tabs">
+            <button class="tab active" data-category="all">All</button>
+            <button class="tab" data-category="skincare">Skincare</button>
+            <button class="tab" data-category="makeup">Makeup</button>
+            <button class="tab" data-category="haircare">Hair Care</button>
+            <button class="tab" data-category="nail_polish">Nail Polish</button>
+        </nav>
+
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+            <span id="product-count">0 products</span>
+            <span id="low-stock-count" class="alert-badge hidden">0 low stock</span>
+        </div>
+
+        <!-- Product List -->
+        <main class="product-list" id="product-list">
+            <!-- Products will be rendered here -->
+            <div class="empty-state">
+                <p>No products yet!</p>
+                <p>Import your Excel files to get started.</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts (order matters!) -->
+    <script src="js/models.js"></script>
+    <script src="js/database.js"></script>
+    <script src="js/excel-import.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/sample-data.js"></script>
+</body>
+</html>
